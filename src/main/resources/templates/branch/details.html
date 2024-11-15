@@ -81,7 +81,8 @@
 </head>
 <body>
 
-<header th:insert="~{fragments/header :: header}"></header>
+<!-- Incluir o fragmento do header -->
+<div th:insert="~{fragments/header-user :: header-user}"></div>
 
 <main class="container mt-5">
   <h2 class="text-center mb-4 gradient-text" th:text="${branch.nome}">Nome da Filial</h2>
