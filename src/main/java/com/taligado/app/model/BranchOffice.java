@@ -21,8 +21,6 @@ public class BranchOffice {
 
     private String telefone;
 
-    private String cnpj;
-
     @Enumerated(EnumType.STRING)
     private SegmentType segmento;
 
@@ -46,10 +44,8 @@ public class BranchOffice {
 
     // Método para calcular as emissões de carbono (em toneladas de CO2)
     public void calcularEmissoesCarbono() {
-        // O consumo de energia total (em kWh) é multiplicado pelo fator de emissão de cada dispositivo
         emissoesCarbono = dispositivos.stream()
                 .mapToDouble(device -> consumoEnergia * device.getFatorEmissao()) // Consumo total * Fator de emissão do dispositivo
                 .sum();
     }
 }
-

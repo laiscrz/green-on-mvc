@@ -1,0 +1,59 @@
+package com.taligado.app.controller;
+
+import com.taligado.app.model.BranchOffice;
+import com.taligado.app.model.enums.SegmentType;
+import com.taligado.app.service.BranchOfficeService;
+import com.taligado.app.service.DeviceService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
+
+@Controller
+@RequestMapping("/branch-offices")
+public class BranchOfficeController {
+
+    @Autowired
+    private BranchOfficeService branchOfficeService;
+
+    @Autowired
+    private DeviceService deviceService;
+
+    @GetMapping
+    public ModelAndView showListBranchOffices(@RequestParam(required = false) String message, @RequestParam(required = false) String error) {
+        List<BranchOffice> branchOffices = branchOfficeService.findAllBranchOffices();
+        ModelAndView modelAndView = new ModelAndView("branch/list");
+        modelAndView.addObject("branchOffices", branchOffices);
+        modelAndView.addObject("message", message);
+        modelAndView.addObject("error", error);
+        return modelAndView;
+    }
+
+    @GetMapping("/{id}")
+    public ModelAndView showBranchOfficeDetails(@PathVariable Long id) {
+        BranchOffice branchOffice = branchOfficeService.findByIdBranchOffice(id);
+        ModelAndView modelAndView = new ModelAndView("branch/details");
+        modelAndView.addObject("branch", branchOffice);
+        return modelAndView;
+    }
+
+    @GetMapping("/delete/{id}")
+    public ModelAndView deleteBranchOffice(@PathVariable Long id) {
+        ModelAndView modelAndView = new ModelAndView("branch/list");
+        try {
+            branchOfficeService.deleteByIdIBranchOffice(id);
+            modelAndView.addObject("message", "Filial excluída com sucesso.");
+        } catch (RuntimeException e) {
+            modelAndView.addObject("error", e.getMessage());
+        }
+        modelAndView.addObject("branchOffices", branchOfficeService.findAllBranchOffices());
+        return modelAndView;
+    }
+
+    @ModelAttribute("segmento")
+    public SegmentType[] getSegmento(){
+        return SegmentType.values();
+    }
+}
