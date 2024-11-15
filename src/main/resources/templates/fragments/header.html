@@ -1,0 +1,54 @@
+<!-- fragments/header.html -->
+<header th:fragment="header" class="header-white-text py-3" xmlns:th="http://www.thymeleaf.org">
+    <style>
+        .header-white-text {
+          background-color: white;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          border-bottom: 1px solid #e0e0e0;
+        }
+
+        .navbar-nav .nav-link {
+          color: #2e8b57;
+          padding: 8px 16px;
+          font-weight: 500;
+          text-transform: capitalize;
+          transition: color 0.3s ease, border-bottom 0.3s ease;
+          border-bottom: 2px solid transparent;
+        }
+
+        .navbar-nav .nav-link:hover {
+          color: #006400;
+          border-bottom: 2px solid #006400;
+        }
+
+        .navbar-toggler-icon {
+          background-color: #2e8b57;
+        }
+
+        h1 {
+          font-size: 2rem;
+          background: linear-gradient(135deg, #32CD32, #2e8b57);
+          -webkit-background-clip: text;
+          color: transparent;
+          margin: 0;
+        }
+    </style>
+    <div class="container d-flex justify-content-between align-items-center">
+        <h1 class="text-center">GreenOn</h1>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#" th:href="@{/}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" th:href="@{/login}">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>

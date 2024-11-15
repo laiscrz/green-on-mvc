@@ -1,0 +1,22 @@
+<!-- fragments/footer.html -->
+<footer th:fragment="footer" class="footer-gradient text-white py-4" xmlns:th="http://www.thymeleaf.org">
+    <style>
+        .footer-gradient {
+            background: linear-gradient(135deg, #32CD32, #006400);
+        }
+        .footer-links a {
+            color: #FF69B4;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        .footer-links a:hover {
+            color: #4169E1;
+        }
+    </style>
+    <div class="container text-center">
+        <p>&copy; 2024 TáLigado. Todos os direitos reservados.</p>
+        <div class="footer-links">
+            <a href="https://github.com/laiscrz/energy-on-mvc" class="text-white"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+</footer>

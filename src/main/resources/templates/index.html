@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenOn - Solução para Empresas</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        .card:hover {
+            transform: scale(1.05);
+        }
+        h2.text-success {
+            color: #28a745 !important;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Incluir o fragmento do header -->
+<header th:insert="~{fragments/header :: header}"></header>
+
+<!-- Hero Section -->
+<section th:insert="~{fragments/carousel :: carousel}"></section>
+
+<main class="container my-5">
+    <!-- Sobre o GreenOn -->
+    <section class="row align-items-center mb-5">
+        <div class="col-md-6">
+            <h2 class="fw-bold mb-3 text-success">Sobre o GreenOn</h2>
+            <p style="font-size: 1.1rem; line-height: 1.6;">
+                O GreenOn é uma solução da plataforma <strong>TáLigado</strong>, focada no gerenciamento de consumo de energia e emissões de CO2 pelas empresas. Ele permite monitorar e controlar o uso de energia nas filiais, identificar padrões e promover práticas sustentáveis, ajudando a reduzir custos e impactos ambientais. O objetivo é tornar as empresas mais sustentáveis, otimizar recursos e minimizar as emissões de carbono.
+            </p>
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="https://plus.unsplash.com/premium_photo-1714874825597-ca8caa37cb50?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Plataforma GreenOn" class="img-fluid" style="border-radius: 15px;">
+        </div>
+    </section>
+
+    <!-- Funcionalidades -->
+    <section class="mb-5">
+        <h2 class="text-center fw-bold mb-4 text-success">Funcionalidades Principais</h2>
+        <div class="row text-center">
+            <!-- Card 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm" style="transition: transform 0.3s; border-radius: 15px;">
+                    <div class="card-body">
+                        <i class="fas fa-bolt fa-3x text-success mb-3"></i>
+                        <h4 class="fw-bold">Consumo Energético</h4>
+                        <p class="card-text">Monitore o consumo de energia nas suas filiais em tempo real, identifique padrões e tome decisões informadas para reduzir custos e desperdícios.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm" style="transition: transform 0.3s; border-radius: 15px;">
+                    <div class="card-body">
+                        <i class="fas fa-leaf fa-3x text-warning mb-3"></i>
+                        <h4 class="fw-bold">Monitoramento de Emissões</h4>
+                        <p class="card-text">Acompanhe as emissões de CO2 geradas pelas operações da sua empresa e busque formas eficazes de reduzir o impacto ambiental.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm" style="transition: transform 0.3s; border-radius: 15px;">
+                    <div class="card-body">
+                        <i class="fas fa-handshake fa-3x text-info mb-3"></i>
+                        <h4 class="fw-bold">Incentivo a Práticas Sustentáveis</h4>
+                        <p class="card-text">Receba recomendações e insights para adotar práticas mais sustentáveis, contribuindo para a preservação ambiental e a redução de custos operacionais.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- Incluir o fragmento do footer -->
+<footer th:insert="~{fragments/footer :: footer}"></footer>
+
+<!-- Scripts JS (Bootstrap) -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
