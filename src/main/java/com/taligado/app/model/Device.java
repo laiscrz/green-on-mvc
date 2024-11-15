@@ -18,7 +18,7 @@ public class Device {
     private String nome;
 
     @Enumerated(EnumType.STRING)
-    private DepartmentType departments;
+    private DepartmentType departamento;
 
     private Double potenciaNominal;
 
@@ -36,7 +36,7 @@ public class Device {
         return "Device{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
-                ", departments=" + departments +
+                ", departments=" + departamento+
                 ", potenciaNominal=" + potenciaNominal +
                 ", tempoUso=" + tempoUso +
                 ", imagemURL='" + imagemURL + '\'' +
