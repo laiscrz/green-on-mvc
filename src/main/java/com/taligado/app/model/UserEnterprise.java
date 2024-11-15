@@ -30,4 +30,9 @@ public class UserEnterprise {
     )
     private Set<Role> roles = new HashSet<>();
 
+    public void updateImgPerfil(String imgPerfilUrl) {
+        if (imgPerfilUrl != null && !imgPerfilUrl.isEmpty()) {
+            this.imgPerfil = imgPerfilUrl;
+        }
+    }
 }

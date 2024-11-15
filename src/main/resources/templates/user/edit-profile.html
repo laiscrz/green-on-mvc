@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GreenOn - Editar Perfil</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    .profile-header {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    .profile-pic {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid #2e8b57;
+        margin-bottom: 1rem;
+    }
+    .profile-container {
+        max-width: 800px;
+        margin: auto;
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+    }
+    .info-label {
+        font-weight: bold;
+        color: #2e8b57;
+    }
+    .info-value {
+        margin-bottom: 1rem;
+    }
+    .password-field {
+        display: none; /* Inicia oculto */
+    }
+  </style>
+</head>
+<body>
+
+<!-- Incluir o fragmento do header -->
+<div th:insert="~{fragments/header-user :: header-user}"></div>
+
+<div class="container my-5">
+  <div class="profile-container">
+    <div class="profile-header">
+      <h2>Editar Perfil</h2>
+    </div>
+    <form th:action="@{/profile/edit/{id}(id=${user.id})}" method="post" th:object="${user}">
+      <div class="row">
+        <div class="col-12 mb-3">
+          <label for="nome" class="form-label">Nome</label>
+          <input type="text" id="nome" th:field="*{nome}" class="form-control" placeholder="Nome completo" required>
+        </div>
+        <div class="col-12 mb-3">
+          <label for="email" class="form-label">E-mail</label>
+          <input type="email" id="email" th:field="*{email}" class="form-control" placeholder="email@exemplo.com" required>
+        </div>
+        <div class="col-12 mb-3">
+          <label for="cnpj" class="form-label">CNPJ</label>
+          <input type="text" id="cnpj" th:field="*{cnpj}" class="form-control" placeholder="00.000.000/0000-00" required>
+        </div>
+
+        <!-- Senha -->
+        <div class="col-12 mb-3">
+          <button type="button" class="btn btn-warning" id="changePasswordBtn">Alterar Senha</button>
+          <div class="password-field" id="passwordField">
+            <label for="senha" class="form-label">Nova Senha</label>
+            <input type="password" id="senha" th:field="*{password}" class="form-control" placeholder="******">
+          </div>
+        </div>
+
+        <div class="col-12 mb-3">
+          <label for="imgPerfil" class="form-label">Imagem de Perfil (URL)</label>
+          <input type="text" id="imgPerfil" th:field="*{imgPerfil}" class="form-control" placeholder="Cole a URL da imagem" th:value="${user.imgPerfil != null ? user.imgPerfil : ''}">
+        </div>
+      </div>
+      <div class="d-flex justify-content-end mt-4">
+        <a href="/control" class="btn btn-outline-secondary me-2">Cancelar</a>
+        <button type="submit" class="btn btn-success">Salvar Alterações</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Incluir o fragmento do footer -->
+<footer th:insert="~{fragments/footer :: footer}"></footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Script para alternar a visibilidade da senha -->
+<script>
+  document.getElementById('changePasswordBtn').addEventListener('click', function() {
+    var passwordField = document.getElementById('passwordField');
+    if (passwordField.style.display === 'none' || passwordField.style.display === '') {
+      passwordField.style.display = 'block';
+    } else {
+      passwordField.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>

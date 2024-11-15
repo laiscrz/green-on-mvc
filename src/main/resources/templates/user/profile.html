@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenOn - Ver Perfil</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .profile-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #2e8b57;
+            margin-bottom: 1rem;
+        }
+        .profile-container {
+            max-width: 800px;
+            margin: auto;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+        .info-label {
+            font-weight: bold;
+            color: #2e8b57;
+        }
+        .info-value {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Incluir o fragmento do header -->
+<div th:insert="~{fragments/header-user :: header-user}"></div>
+
+<div class="container my-5">
+    <div class="profile-container">
+        <div class="profile-header">
+            <img th:src="${user.imgPerfil != null ? user.imgPerfil : 'https://www.gravatar.com/avatar/{{user.email}}?s=150&d=mp'}" alt="Imagem de Perfil" class="profile-pic">
+            <h2 th:text="${user.nome}">Nome do Usuário</h2>
+            <p class="text-muted" th:text="${user.email}">usuario@exemplo.com</p>
+        </div>
+        <div class="row">
+            <div class="col-12 mb-3">
+                <div class="info-label">Nome de Usuário</div>
+                <div class="info-value" th:text="${user.username}">username</div>
+            </div>
+            <div class="col-12 mb-3">
+                <div class="info-label">CNPJ</div>
+                <div class="info-value" th:text="${user.cnpj}">00.000.000/0000-00</div>
+            </div>
+            <div class="col-12 mb-3">
+                <div class="info-label">Senha</div>
+                <div class="info-value" th:text="'******'">******</div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-end mt-4">
+            <a th:href="@{/profile/edit/{id}(id=${user.id})}" class="btn btn-outline-success me-2">Editar Perfil</a>
+            <form action="#" th:action="@{/logout}" method="post">
+                <button type="submit" class="btn btn-danger">Excluir Conta</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Incluir o fragmento do footer -->
+<footer th:insert="~{fragments/footer :: footer}"></footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

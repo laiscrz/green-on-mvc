@@ -17,7 +17,7 @@ import java.util.Set;
 public class UserEnterpriseService {
 
     @Autowired
-    private IUserEnterpriseRepository userProfileRepository;
+    private IUserEnterpriseRepository userEnterpriseRepository;
 
     @Autowired
     private IRoleRepository roleRepository;
@@ -42,7 +42,7 @@ public class UserEnterpriseService {
         }
 
         userEnterprise.setRoles(roles);
-        userProfileRepository.save(userEnterprise);
+        userEnterpriseRepository.save(userEnterprise);
     }
 
 
@@ -54,14 +54,53 @@ public class UserEnterpriseService {
 
     public Optional<UserEnterprise> getLoggedInUser() {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        return userProfileRepository.findByUsername(username);
+        return userEnterpriseRepository.findByUsername(username);
     }
 
+    public Optional<UserEnterprise> getUserByUsername(String username) {
+        return userEnterpriseRepository.findByUsername(username);
+    }
+
+    public void saveUserEnterprise(UserEnterprise userEnterprise) {
+        userEnterpriseRepository.save(userEnterprise);
+    }
+
+    public void updateUser(UserEnterprise userEnterprise) {
+        Optional<UserEnterprise> existingUserOpt = userEnterpriseRepository.findById(userEnterprise.getId());
+
+        if (existingUserOpt.isEmpty()) {
+            throw new IllegalArgumentException("Usuário não encontrado");
+        }
+
+        UserEnterprise existingUser = existingUserOpt.get();
+
+        userEnterprise.setId(existingUser.getId()); 
+
+        if (userEnterprise.getNome() != null && !userEnterprise.getNome().isEmpty()) {
+            existingUser.setNome(userEnterprise.getNome());
+        }
+
+        if (userEnterprise.getEmail() != null && !userEnterprise.getEmail().isEmpty()) {
+            existingUser.setEmail(userEnterprise.getEmail());
+        }
+
+        if (userEnterprise.getImgPerfil() != null && !userEnterprise.getImgPerfil().isEmpty()) {
+            existingUser.setImgPerfil(userEnterprise.getImgPerfil());
+        }
+
+        if (userEnterprise.getPassword() != null && !userEnterprise.getPassword().isEmpty()) {
+            existingUser.setPassword(passwordEncoder.encode(userEnterprise.getPassword()));
+        }
+
+        userEnterpriseRepository.save(existingUser);
+    }
+
+
     public void deleteUser(String username) {
-        Optional<UserEnterprise> userEnterpriseOptional = userProfileRepository.findByUsername(username);
+        Optional<UserEnterprise> userEnterpriseOptional = userEnterpriseRepository.findByUsername(username);
 
         if (userEnterpriseOptional.isPresent()) {
-            userProfileRepository.delete(userEnterpriseOptional.get());
+            userEnterpriseRepository.delete(userEnterpriseOptional.get());
         } else {
             throw new IllegalArgumentException("Usuário não encontrado");
         }
