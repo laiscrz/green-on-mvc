@@ -1,0 +1,87 @@
+<header th:fragment="header-user" class="header-white-text py-3" xmlns:th="http://www.thymeleaf.org">
+  <style>
+    .header-white-text {
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .navbar-nav .nav-link {
+      color: #2e8b57;
+      padding: 8px 16px;
+      font-weight: 500;
+      text-transform: capitalize;
+      transition: color 0.3s ease, border-bottom 0.3s ease;
+      border-bottom: 2px solid transparent;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #006400;
+      border-bottom: 2px solid #006400;
+    }
+
+    .navbar-toggler-icon {
+      background-color: #2e8b57;
+    }
+
+    h1 {
+      font-size: 2rem;
+      background: linear-gradient(135deg, #32CD32, #2e8b57);
+      -webkit-background-clip: text;
+      color: transparent;
+      margin: 0;
+    }
+
+    .user-profile {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .user-profile img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .dropdown-menu {
+      min-width: 180px;
+    }
+  </style>
+
+  <div class="container d-flex justify-content-between align-items-center">
+    <h1 class="text-center">EnergyOn</h1>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" th:href="@{/}">Home</a>
+          </li>
+          <!-- Dropdown do Usuário -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle user-profile" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img th:src="${user.imgPerfil != null ? user.imgPerfil : 'https://www.gravatar.com/avatar/{{user.email}}?s=40&d=mp'}" alt="User">
+              <span th:text="${userName}">Usuário</span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#" th:href="@{/control}">Painel de Controle</a></li>
+              <li><a class="dropdown-item" href="#">Ver Perfil</a></li>
+              <li>
+                <form action="#" th:action="@{/delete-account}" method="post" style="display: inline;" onsubmit="return confirm('Tem certeza que deseja deletar esta conta?');">
+                  <button type="submit" class="dropdown-item">Apagar Conta</button>
+                </form>
+              <li>
+                <form action="#" th:action="@{/logout}" method="post" style="display: inline;">
+                  <button type="submit" class="dropdown-item">Logout</button>
+                </form>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
