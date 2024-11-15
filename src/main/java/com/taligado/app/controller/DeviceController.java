@@ -6,6 +6,7 @@ import com.taligado.app.service.DeviceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,6 +39,33 @@ public class DeviceController {
         return modelAndView;
     }
 
+    @GetMapping("/new")
+    public ModelAndView showCreateDeviceForm() {
+        ModelAndView modelAndView = new ModelAndView("device/form");
+        modelAndView.addObject("device", new Device());
+        return modelAndView;
+    }
+
+    @PostMapping
+    public String saveDevice(@ModelAttribute Device device) {
+        deviceService.saveDevice(device);
+        return "redirect:/devices";
+    }
+
+    @GetMapping("/edit/{id}")
+    public ModelAndView showEditDeviceForm(@PathVariable Long id) {
+        Device device = deviceService.findByIdDevice(id);
+        ModelAndView modelAndView = new ModelAndView("device/form");
+        modelAndView.addObject("device", device);
+        return modelAndView;
+    }
+
+    @PostMapping("/{id}")
+    public String updateDevice(@PathVariable Long id, @ModelAttribute Device device) {
+        device.setId(id);
+        deviceService.saveDevice(device);
+        return "redirect:/devices";
+    }
 
     @GetMapping("/delete/{id}")
     public ModelAndView deleteDevice(@PathVariable Long id) {

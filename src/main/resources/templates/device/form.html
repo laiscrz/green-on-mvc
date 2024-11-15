@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>GreenOn - Formulário de Dispositivo</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+        background-color: #F0F4F8;
+        color: #333333;
+        font-family: 'Roboto', sans-serif;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+    }
+    main {
+      flex: 1;
+    }
+    .form-container {
+        margin-top: 2rem;
+        padding: 2rem;
+        border-radius: 12px;
+        background-color: #ffffff;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+    h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #32CD32, #2e8b57);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .btn {
+        font-size: 1rem;
+        padding: 0.8rem 1.2rem;
+        border-radius: 8px;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+    .btn:hover {
+        transform: scale(1.05);
+    }
+    .btn-primary {
+        background-color: #28a745;
+        border: none;
+    }
+    .btn-primary:hover {
+        background-color: #218838;
+    }
+    .btn-secondary {
+        background-color: #6C757D;
+        border: none;
+    }
+    .btn-secondary:hover {
+        background-color: #5A6268;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Incluir o fragmento do header -->
+<header th:insert="~{fragments/header :: header}"></header>
+
+<main class="container form-container mb-4">
+  <h2 class="mb-4">Formulário - Dispositivo</h2>
+
+  <form th:action="@{${device.id} != null ? '/devices/' + ${device.id} : '/devices'}" th:object="${device}" method="post" enctype="multipart/form-data" class="row g-3">
+    <div class="col-md-6">
+      <label for="nome" class="form-label">Nome</label>
+      <input type="text" th:field="*{nome}" class="form-control" id="nome" required>
+      <div th:if="${#fields.hasErrors('nome')}" class="text-danger" th:errors="*{nome}">Nome é obrigatório</div>
+    </div>
+    <div class="col-md-6">
+      <label for="departamento" class="form-label">Departamento</label>
+      <select th:field="*{departamento}" class="form-select" id="departamento" required>
+        <option value="" disabled>Selecione o departamento</option>
+        <option th:each="department : ${T(com.taligado.app.model.enums.DepartmentType).values()}"
+                th:value="${department}" th:text="${department}"></option>
+      </select>
+      <div th:if="${#fields.hasErrors('departamento')}" class="text-danger" th:errors="*{departamento}">Departamento é obrigatório</div>
+    </div>
+    <div class="col-md-6">
+      <label for="potenciaNominal" class="form-label">Potência Nominal (kW)</label>
+      <input type="number" th:field="*{potenciaNominal}" class="form-control" id="potenciaNominal" required>
+      <div th:if="${#fields.hasErrors('potenciaNominal')}" class="text-danger" th:errors="*{potenciaNominal}">Potência nominal é obrigatória</div>
+    </div>
+    <div class="col-md-6">
+      <label for="tempoUso" class="form-label">Tempo de Uso (h)</label>
+      <input type="number" th:field="*{tempoUso}" class="form-control" id="tempoUso" required>
+      <div th:if="${#fields.hasErrors('tempoUso')}" class="text-danger" th:errors="*{tempoUso}">Tempo de uso é obrigatório</div>
+    </div>
+    <div class="col-md-6">
+      <label for="imagemURL" class="form-label">URL da Imagem</label>
+      <input type="url" th:field="*{imagemURL}" class="form-control" id="imagemURL">
+    </div>
+    <div class="col-md-6">
+      <label for="fatorEmissao" class="form-label">Fator de Emissão (gCO₂/kWh)</label>
+      <input type="number" th:field="*{fatorEmissao}" class="form-control" id="fatorEmissao" required>
+      <div th:if="${#fields.hasErrors('fatorEmissao')}" class="text-danger" th:errors="*{fatorEmissao}">Fator de emissão é obrigatório</div>
+    </div>
+    <div class="col-12 mt-3">
+      <button type="submit" class="btn btn-primary">Salvar</button>
+      <a th:href="@{/devices}" class="btn btn-secondary">Cancelar</a>
+    </div>
+  </form>
+</main>
+
+<!-- Incluir o fragmento do footer -->
+<footer th:insert="~{fragments/footer :: footer}"></footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
