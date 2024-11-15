@@ -9,7 +9,7 @@ INSERT INTO device (potencia_nominal, tempo_uso, nome, imagemurl, fator_emissao,
 
 INSERT INTO device (potencia_nominal, tempo_uso, nome, imagemurl, fator_emissao, departamento) VALUES (150, 2, 'Lâmpada LED', 'https://abrir.link/SWmem', 0.2, 'ADMINISTRATIVO');
 
-INSERT INTO branch_office (nome, endereco, telefone, segmento, consumo_energia, emissoes_carbono) VALUES ('Filial São Paulo', 'Rua Exemplo, 123, São Paulo, SP', '(11) 1234-5678', 'INDUSTRIA', 1500.0, 0.75);
+INSERT INTO branch_office (nome, endereco, telefone, segmento, consumo_energia, emissoes_carbono) VALUES ('Filial Paulista', 'Avenida Paulista , 1100, São Paulo, SP', '(11) 1234-5678', 'INDUSTRIA', 5300.0, 3710.0);
 
 
 INSERT INTO branch_office_device (branch_office_id, device_id) VALUES (1, 1);

@@ -24,6 +24,9 @@ public class BranchOfficeService {
 
     // Salva ou atualiza
     public void saveBranchOffice(BranchOffice branchOffice) {
+        branchOffice.calcularConsumoEnergia();
+        branchOffice.calcularEmissoesCarbono();
+
         branchOfficeRepository.save(branchOffice);
     }
 
