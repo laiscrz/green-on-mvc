@@ -2,7 +2,7 @@
 
 O **GreenOn** é uma solução da plataforma **TáLigado**, focada no gerenciamento de consumo de energia ⚡ e emissões de CO2 🌍 pelas **empresas**. Ele permite monitorar e controlar o uso de energia nas filiais 🏢, identificar padrões e promover práticas sustentáveis 🌱, ajudando a reduzir custos 💸 e impactos ambientais. O objetivo é tornar as empresas mais sustentáveis, otimizar recursos e minimizar as emissões de carbono 🌍.
 
-## Funcionalidades 🚀
+## ⚙️ Funcionalidades
 
 - **Monitoramento de Consumo de Energia ⚡**  
   Acompanhe em tempo real o consumo de energia elétrica nas suas filiais, com dados detalhados para cada unidade 🔌.
@@ -73,8 +73,52 @@ erDiagram
     ROLES ||--o{ USER_ROLES : "atribui"
 
 ```
+---
+
+## 🧪 Testes Unitários
 
 
+
+---
+## 🔑 Instruções de Acesso
+
+> [!WARNING]  
+> **💡 Observação:** Verifique as permissões atribuídas a cada tipo de usuário.
+
+
+### 👑 ADMIN padrão
+
+- **Usuário padrão (ADMIN)**:
+
+```plaintext
+Nome: Admin TáLigado
+Email: admin@taligado.com
+Username: admin_taligado
+Imagem de Perfil: https://abrir.link/eiEEK
+Senha: fiap123 (criptografada no banco)
+CNPJ: 12.345.678/0001-90
+Função: ADMIN
+```
+
+> [!IMPORTANT]  
+> **⚠️ Importante**: O administrador tem permissões completas para gerenciar todos os aspectos do sistema, incluindo o gerenciamento de usuários e dispositivos.
+
+
+🧑‍💻 **Acesso para Usuário Padrão (USER)**
+
+- **Usuário padrão (USER)** pode criar usuários comuns, como:
+
+```plaintext
+Nome: FIAP
+Email: devops@fiap.com
+Username: fiap@devops
+Senha: fiap2024 (criptografada no banco)
+CNPJ: 22.000.678/0001-90
+Função: USER
+```
+
+> [!NOTE]
+> 📝 **Atenção:** As senhas são **criptografadas** no banco de dados utilizando o algoritmo **bcrypt**. A senha fornecida acima é a original, mas será armazenada de forma segura no banco de dados.
 ---
 
 ## 🫂 Integrantes
