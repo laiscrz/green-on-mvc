@@ -105,16 +105,24 @@ public class UserEnterpriseController {
 
     @PostMapping("/delete-account")
     public ModelAndView deleteUserAccount() {
-        Optional<UserEnterprise> user = userEnterpriseService.getLoggedInUser();
+        Optional<UserEnterprise> userOptional = userEnterpriseService.getLoggedInUser();
 
-        if (user.isPresent()) {
+        if (userOptional.isPresent()) {
+            UserEnterprise user = userOptional.get();
 
-            userEnterpriseService.deleteUser(user.get().getUsername());
+            boolean isAdmin = user.getRoles().stream()
+                    .anyMatch(role -> role.getRoleName().equals("ADMIN"));
 
-            return new ModelAndView("redirect:/login");
+            if (isAdmin) {
+                userEnterpriseService.deleteUser(user.getUsername());
+                return new ModelAndView("redirect:/login");
+            }
         }
 
-        return new ModelAndView("error");
+        return new ModelAndView("redirect:/access-denied");
     }
+
+
+
 }
 

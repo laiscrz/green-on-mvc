@@ -18,6 +18,7 @@ public class SecurityConfig {
                         .requestMatchers("/","/register", "/logout").permitAll()
                         .requestMatchers("/control","/devices", "/branch-offices")
                         .hasAnyAuthority("USER", "ADMIN")
+                        .requestMatchers("/delete-account").hasAuthority("ADMIN")
                         .anyRequest().authenticated())
 
                 .formLogin((form) -> form
