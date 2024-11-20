@@ -112,6 +112,7 @@ Função: ADMIN
 Nome: FIAP
 Email: devops@fiap.com
 Username: fiap@devops
+Imagem de Perfil: https://abrir.link/EgrNu
 Senha: fiap2024 (criptografada no banco)
 CNPJ: 22.000.678/0001-90
 Função: USER
