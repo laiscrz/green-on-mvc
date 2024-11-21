@@ -223,68 +223,30 @@ O **GreenOn** utiliza uma abordagem totalmente automatizada para **CI/CD** (Inte
 
 ---
 
-### **2️⃣ Provisionando Infraestrutura no Azure Cloud** 🏗️  
-- Crie uma conta no **Azure Cloud** e use o **Azure CLI** para provisionar:  
-  - **Azure Web App** (para hospedar sua aplicação Spring Boot).  
+### **2️⃣ Provisionando Infraestrutura no Azure Cloud** 🏗️
+
+- Crie uma conta no **Azure Cloud** e utilize o **Azure CLI** para provisionar:
+  - **Azure Web App** (para hospedar sua aplicação Spring Boot).
   - Conexão de serviço para integração do DevOps com o Web App.
-- Utilize automação com scripts para garantir uma configuração padronizada e reutilizável. 🛡️
-  - Use o script **infraWebApp.sh** para provisionar o **Azure Web App**.
-  - Salve o seguinte script como `infraWebApp.sh`:
+- Use automação com scripts para garantir uma configuração padronizada e reutilizável. 🛡️
+  - Utilize o script **infraWebApp.sh** para provisionar o **Azure Web App**.
+  - Salve o script abaixo como `infraWebApp.sh`:
+  
+  **[Acesse o script infraWebApp.sh aqui](infraWebApp.sh)**
 
-**Script: `infraWebApp.sh`**
-```bash
-#!/bin/bash
-# ==================== CONFIGURAÇÃO DO WEB APP ====================
-
-# Variáveis
-grupoRecursos=rg-greenon
-regiao=eastus
-planService=PlanGreenOn
-sku=F1
-appName=greenonRM552258
-runtime="JAVA:17-java17" 
-
-### Criação do Grupo de Recursos
-# Verifica a existência do grupo de recursos e se não existir, cria
-if [ $(az group exists --name $grupoRecursos) = true ]; then
-    echo "O grupo de recursos $grupoRecursos já existe"
-else
-    # Cria o grupo de recursos
-    az group create --name $grupoRecursos --location $regiao
-    echo "Grupo de recursos $grupoRecursos criado na localização $regiao"
-fi
-
-### Cria o Plano de Serviço se não existir
-if az appservice plan show --name $planService --resource-group $grupoRecursos &> /dev/null; then
-    echo "O plano de serviço $planService já existe"
-else
-    az appservice plan create --name $planService --resource-group $grupoRecursos --is-linux --sku $sku
-    echo "Plano de serviço $planService criado com sucesso"
-fi 
-
-### Cria o Serviço de Aplicativo se não existir
-if az webapp show --name $appName --resource-group $grupoRecursos &> /dev/null; then
-    echo "O Serviço de Aplicativo $appName já existe"
-else
-    az webapp create --resource-group $grupoRecursos --plan $planService --name $appName --runtime $runtime
-    echo "Serviço de Aplicativo $appName criado com sucesso com runtime Java 17"
-fi
-
-### Configura o Serviço de Aplicativo para Java 17
-if az webapp show --name $appName --resource-group $grupoRecursos > /dev/null 2>&1; then
-    az webapp config set --resource-group $grupoRecursos --name $appName --java-version 17
-    echo "Serviço de Aplicativo $appName configurado com Java 17 com sucesso"
-fi
-
-```
-- Execute:
   ```bash
   az account set --subscription "<sua_assinatura>"
-  chmod +x infraWebApp.sh
-  ./infraWebApp.sh > resultadoWebApp.txt
+  touch infraWebApp.sh
   ```
 
-O script configura o **Web App**, o grupo de recursos e o plano de serviço. Certifique-se de que todos os recursos foram criados no portal Azure.
+- Execute os seguintes comandos para garantir que o script tenha permissões de execução e execute o provisionamento:
+
+  ```bash
+  chmod +x scripts/infraWebApp.sh
+  ./scripts/infraWebApp.sh > resultadoWebApp.txt
+  ```
+
+> O script configura o **Web App**, o grupo de recursos e o plano de serviço. Verifique no portal Azure para garantir que todos os recursos foram criados corretamente.
 
 ---
 
@@ -341,14 +303,7 @@ steps:
 
 ### **4️⃣ Configuração do Pipeline de Release (CD)** 🚢  
 - **Release Automática:** Integre o pipeline de build para que todo artefato gerado seja implantado automaticamente no **Azure Web App**.  
-- **Configurações do Web App:** Configure a aplicação para usar as variáveis sensíveis `DB_USERNAME` e `DB_PASSWORD` encontradas no `application.properties`.  
-
-```yaml
--spring.datasource.username=${DB_USERNAME}
--spring.datasource.password=${DB_PASSWORD}
-```
-
-> **💡 Dica:** Use o **Azure DevOps** para armazenar as variáveis sensíveis de forma segura.  
+- **Configurações do Web App:** Configure a aplicação para realizar deploy.  
 
 ---
 
@@ -363,7 +318,7 @@ steps:
 
 Aqui está uma captura de tela da aplicação **GreenOn** rodando na nuvem:
 
-![GreenOn Rodando na Nuvem]()
+![GreenOn Rodando na Nuvem](https://github.com/user-attachments/assets/d4adb87b-ce44-496a-a3e6-dc08d97ddc96)
 
 ---
 
