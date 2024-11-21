@@ -141,7 +141,7 @@ Nome: Monitor
 Departamento: TI
 Potência Nominal: 50.0 (em watts)
 Tempo de Uso: 1000.0 (em horas)
-Imagem URL: https://abrir.link/yLVET
+Imagem URL: https://abrir.link/ktYCA
 Fator de Emissão: 1 (em kgCO2/kWh)
 ```
 
@@ -178,7 +178,7 @@ Nome: Monitor LG
 Departamento: ADMINISTRATIVO
 Potência Nominal: 35.0 (em watts)
 Tempo de Uso: 1500.0 (em horas)
-Imagem URL: https://abrir.link/yLVET
+Imagem URL: https://abrir.link/ktYCA
 Fator de Emissão: 1 (em kgCO2/kWh)
 ```
 
