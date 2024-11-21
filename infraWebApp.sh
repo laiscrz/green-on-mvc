@@ -6,7 +6,7 @@ regiao=eastus
 planService=PlanGreenOn
 sku=F1
 appName=greenonRM552258
-runtime="TOMCAT:10.1-java17"  
+runtime="JAVA|17"  
 
 ### Criação do Grupo de Recursos
 # Verifica a existência do grupo de recursos e se não existir, cria
