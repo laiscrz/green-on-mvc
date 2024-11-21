@@ -322,6 +322,15 @@ Aqui está uma captura de tela da aplicação **GreenOn** rodando na nuvem:
 
 ---
 
+## 🧩 Integrações
+
+Print da Task evidenciando a integração do Repos com o Azure DevOps, destacando a conclusão da tarefa e a configuração do pipeline
+
+![Integrações com Repos e Pipelines]()
+
+
+---
+
 ## Tecnologias Utilizadas 🛠️
 
 - **Spring Boot**: Framework para desenvolvimento de aplicações Java.
