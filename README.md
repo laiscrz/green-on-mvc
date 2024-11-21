@@ -77,7 +77,11 @@ erDiagram
 
 ## 🧪 Testes Unitários
 
+A aplicação **GreenOn** inclui uma suíte de testes unitários que garante a qualidade e o funcionamento adequado dos serviços. Foram implementados testes para as classes, `UserEnterprise`, `BranchOffice`, `Device`, `UserEnterprise`, `BranchOfficeService` e `DeviceService` utilizando **JUnit** e **Mockito**. 
 
+No total, 42 testes foram executados com sucesso, confirmando que as funcionalidades principais estão funcionando conforme o esperado.
+
+![Terminal com comando `mvn clean test`](https://github.com/user-attachments/assets/bb2914bf-b746-43b0-8c5f-85de1af731db)
 
 ---
 ## 🔑 Instruções de Acesso
@@ -120,6 +124,83 @@ Função: USER
 
 > [!NOTE]
 > 📝 **Atenção:** As senhas são **criptografadas** no banco de dados utilizando o algoritmo **bcrypt**. A senha fornecida acima é a original, mas será armazenada de forma segura no banco de dados.
+
+
+---
+
+## CRUD - Exemplos 📋
+
+#### *Dispositivo* ⚡
+
+Para criar um novo Dispositivo, você deve enviar um formulário com as seguintes informações:
+
+```plaintext
+Nome: Monitor
+Departamento: TI
+Potência Nominal: 50.0 (em watts)
+Tempo de Uso: 1000.0 (em horas)
+Imagem URL: https://abrir.link/yLVET
+Fator de Emissão: 1 (em kgCO2/kWh)
+```
+
+#### *Filial* 🏢
+
+Para criar uma nova filial, você pode usar o seguinte formulário:
+
+```plaintext
+Nome: Filial São Paulo
+Endereço: Rua das Indústrias, 123
+Telefone: 912345678
+Segmento: INDUSTRIA 
+Dispositivos: Monitor
+```
+
+### 2. Ler 📖
+
+#### *Dispositivo* 🔍
+
+Para **ler** os detalhes de um dispositivo específico, aperte em 'Detalhes'.
+
+#### *Filiais* 📅
+
+Para **ler** os detalhes de uma filial específica, aperte em 'Detalhes'.
+
+### 3. Atualizar ✏️
+
+#### *Dispositivo* ✨
+
+Para **atualizar** as informações de um dispositivo existente, você pode enviar o seguinte formulário:
+
+```plaintext
+Nome: Monitor LG
+Departamento: ADMINISTRATIVO
+Potência Nominal: 35.0 (em watts)
+Tempo de Uso: 1500.0 (em horas)
+Imagem URL: https://abrir.link/yLVET
+Fator de Emissão: 1 (em kgCO2/kWh)
+```
+
+#### *Filial* 🏢
+
+Para **atualizar** uma filial existente, você pode usar o seguinte formulário:
+
+```plaintext
+Nome: Filial São Paulo
+Endereço: Rua dos Comercios, 123
+Telefone: 1234-5678
+Segmento: COMERCIO
+Dispositivos: Monitor, Lâmpada LED
+```
+
+### 4. Excluir 🗑️
+
+#### *Dispositivo* 🛑
+
+Para **excluir** um dispositivo, aperte em 'Excluir'.
+
+#### *Filiais* 🏠
+
+Para **excluir** uma filial, aperte em 'Excluir'.
 ---
 
 ## 🫂 Integrantes
