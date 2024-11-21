@@ -86,12 +86,12 @@
     </div>
     <div class="col-md-6">
       <label for="potenciaNominal" class="form-label">Potência Nominal (kW)</label>
-      <input type="number" th:field="*{potenciaNominal}" class="form-control" id="potenciaNominal" required>
+      <input type="number" th:field="*{potenciaNominal}" class="form-control" id="potenciaNominal" step="0.1" required>
       <div th:if="${#fields.hasErrors('potenciaNominal')}" class="text-danger" th:errors="*{potenciaNominal}">Potência nominal é obrigatória</div>
     </div>
     <div class="col-md-6">
       <label for="tempoUso" class="form-label">Tempo de Uso (h)</label>
-      <input type="number" th:field="*{tempoUso}" class="form-control" id="tempoUso" required>
+      <input type="number" th:field="*{tempoUso}" class="form-control" id="tempoUso" step="0.1" required>
       <div th:if="${#fields.hasErrors('tempoUso')}" class="text-danger" th:errors="*{tempoUso}">Tempo de uso é obrigatório</div>
     </div>
     <div class="col-md-6">
@@ -100,7 +100,7 @@
     </div>
     <div class="col-md-6">
       <label for="fatorEmissao" class="form-label">Fator de Emissão (gCO₂/kWh)</label>
-      <input type="number" th:field="*{fatorEmissao}" class="form-control" id="fatorEmissao" required>
+      <input type="number" th:field="*{fatorEmissao}" class="form-control" id="fatorEmissao" step="0.1" required>
       <div th:if="${#fields.hasErrors('fatorEmissao')}" class="text-danger" th:errors="*{fatorEmissao}">Fator de emissão é obrigatório</div>
     </div>
     <div class="col-12 mt-3">
