@@ -95,7 +95,7 @@ No total, 42 testes foram executados com sucesso, confirmando que as funcionalid
 - **Usuário padrão (ADMIN)**:
 
 ```plaintext
-Nome: Admin TáLigado
+Nome: Admin TaLigado
 Email: admin@taligado.com
 Username: admin_taligado
 Imagem de Perfil: https://abrir.link/eiEEK
@@ -150,8 +150,8 @@ Fator de Emissão: 1 (em kgCO2/kWh)
 Para criar uma nova filial, você pode usar o seguinte formulário:
 
 ```plaintext
-Nome: Filial São Paulo
-Endereço: Rua das Indústrias, 123
+Nome: Filial Brasil
+Endereço: Rua das Industrias, 123
 Telefone: 912345678
 Segmento: INDUSTRIA 
 Dispositivos: Monitor
@@ -187,11 +187,11 @@ Fator de Emissão: 1 (em kgCO2/kWh)
 Para **atualizar** uma filial existente, você pode usar o seguinte formulário:
 
 ```plaintext
-Nome: Filial São Paulo
+Nome: Filial Brasil
 Endereço: Rua dos Comercios, 123
 Telefone: 1234-5678
 Segmento: COMERCIO
-Dispositivos: Monitor, Lâmpada LED
+Dispositivos: Monitor, Lampada LED
 ```
 
 ### 4. Excluir 🗑️
