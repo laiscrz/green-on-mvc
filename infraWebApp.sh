@@ -1,4 +1,4 @@
-# ==================== CONFIGURAÇÃO DO WEB APP ====================
+# ==================== CONFIGURAÇÃO DO WEB APP - AZURE CLI ====================
 
 # Variáveis
 grupoRecursos=rg-greenon
