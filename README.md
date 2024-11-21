@@ -326,7 +326,7 @@ Aqui está uma captura de tela da aplicação **GreenOn** rodando na nuvem:
 
 Print da Task evidenciando a integração do Repos com o Azure DevOps, destacando a conclusão da tarefa e a configuração do pipeline
 
-![Integrações com Repos e Pipelines]()
+![Integrações com Repos e Pipelines](https://github.com/user-attachments/assets/7bb65ba1-3649-4059-89d9-f7bddd8a7b5b)
 
 
 ---
@@ -350,7 +350,7 @@ Print da Task evidenciando a integração do Repos com o Azure DevOps, destacand
 ## 📄 Documentação Adicional
 
 - **Código Fonte**: [GitHub Repository](https://github.com/laiscrz/green-on-mvc) 📁
-- **Vídeo de Demonstração**: [YouTube Video]() 📹
+- **Vídeo de Demonstração**: [YouTube Video](https://www.youtube.com/watch?v=yYzEJPHfFGg) 📹
 
 ---
 
