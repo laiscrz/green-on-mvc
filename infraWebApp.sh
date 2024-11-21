@@ -6,7 +6,7 @@ regiao=eastus
 planService=PlanGreenOn
 sku=F1
 appName=greenonRM552258
-runtime="JAVA|17"  
+runtime="JAVA:17-java17"  
 
 ### Criação do Grupo de Recursos
 # Verifica a existência do grupo de recursos e se não existir, cria
@@ -22,7 +22,7 @@ fi
 if az appservice plan show --name $planService --resource-group $grupoRecursos &> /dev/null; then
     echo "O plano de serviço $planService já existe"
 else
-    az appservice plan create --name $planService --resource-group $grupoRecursos --sku $sku
+    az appservice plan create --name $planService --resource-group $grupoRecursos --is-linux --sku $sku
     echo "Plano de serviço $planService criado com sucesso"
 fi 
 
