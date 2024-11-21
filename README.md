@@ -299,6 +299,7 @@ steps:
 
 > [!IMPORTANT]  
 > **Nota: A variável `$(AzureSubscriptionID)` representa o identificador da assinatura do Azure, que é utilizado para autenticação e acesso seguro aos recursos da conta no Azure.** 
+
 ---
 
 ### **4️⃣ Configuração do Pipeline de Release (CD)** 🚢  
@@ -314,6 +315,7 @@ steps:
   Certifique-se de que o Web App está em funcionamento e de que todas as configurações foram aplicadas corretamente. 🎉  
 
 ---
+
 ## 🌐 Imagem da Aplicação Rodando na Nuvem
 
 Aqui está uma captura de tela da aplicação **GreenOn** rodando na nuvem:
