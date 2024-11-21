@@ -130,6 +130,8 @@ Função: USER
 
 ## CRUD - Exemplos 📋
 
+### 1. Criar ➕
+
 #### *Dispositivo* ⚡
 
 Para criar um novo Dispositivo, você deve enviar um formulário com as seguintes informações:
