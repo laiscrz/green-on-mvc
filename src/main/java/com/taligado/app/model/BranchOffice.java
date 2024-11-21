@@ -4,6 +4,7 @@ import com.taligado.app.model.enums.SegmentType;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import jakarta.validation.constraints.*;
 import java.util.List;
 
 @Data
@@ -15,14 +16,21 @@ public class BranchOffice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull(message = "O nome da filial não pode ser nulo")
+    @Size(min = 1, max = 100, message = "O nome da filial deve ter entre 1 e 100 caracteres")
     private String nome;
 
+    @NotNull(message = "O endereço da filial não pode ser nulo")
+    @Size(min = 1, max = 200, message = "O endereço da filial deve ter entre 1 e 200 caracteres")
     private String endereco;
 
+    @NotNull(message = "O telefone da filial não pode ser nulo")
     private String telefone;
 
+    @NotNull(message = "O segmento não pode ser nulo")
     @Enumerated(EnumType.STRING)
     private SegmentType segmento;
+
 
     @ManyToMany
     @JoinTable(
@@ -33,6 +41,7 @@ public class BranchOffice {
     private List<Device> dispositivos;
 
     private Double consumoEnergia;
+
     private Double emissoesCarbono;
 
     // Método para calcular o consumo total de energia
@@ -45,7 +54,7 @@ public class BranchOffice {
     // Método para calcular as emissões de carbono (em toneladas de CO2)
     public void calcularEmissoesCarbono() {
         emissoesCarbono = dispositivos.stream()
-                .mapToDouble(device -> consumoEnergia * device.getFatorEmissao()) // Consumo total * Fator de emissão do dispositivo
+                .mapToDouble(device -> consumoEnergia * device.getFatorEmissao())
                 .sum();
     }
 }
