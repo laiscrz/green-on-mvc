@@ -293,7 +293,6 @@ steps:
   inputs:
     PathtoPublish: '$(build.artifactstagingdirectory)'
     ArtifactName: 'greenon-app'
-
 ```
 
 - Esse pipeline executa os testes unitários com **JUnit**, constrói o pacote da aplicação. 🔧
