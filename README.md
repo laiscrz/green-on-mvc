@@ -234,17 +234,17 @@ O **GreenOn** utiliza uma abordagem totalmente automatizada para **CI/CD** (Inte
   
   **[Acesse o script infraWebApp.sh aqui](infraWebApp.sh)**
 
-  ```bash
+```bash
   az account set --subscription "<sua_assinatura>"
   touch infraWebApp.sh
-  ```
+```
 
 - Execute os seguintes comandos para garantir que o script tenha permissões de execução e execute o provisionamento:
 
-  ```bash
+```bash
   chmod +x scripts/infraWebApp.sh
   ./scripts/infraWebApp.sh > resultadoWebApp.txt
-  ```
+```
 
 > O script configura o **Web App**, o grupo de recursos e o plano de serviço. Verifique no portal Azure para garantir que todos os recursos foram criados corretamente.
 
