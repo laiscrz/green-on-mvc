@@ -2,6 +2,12 @@
 
 O **GreenOn** é uma solução da plataforma **TáLigado**, focada no gerenciamento de consumo de energia ⚡ e emissões de CO2 🌍 pelas **empresas**. Ele permite monitorar e controlar o uso de energia nas filiais 🏢, identificar padrões e promover práticas sustentáveis 🌱, ajudando a reduzir custos 💸 e impactos ambientais. O objetivo é tornar as empresas mais sustentáveis, otimizar recursos e minimizar as emissões de carbono 🌍.
 
+## 🏆 **Reconhecimento Acadêmico e Premiação**  
+
+- O projeto recebeu **nota máxima** pela sua excelência técnica e inovação, destacando a solução para resolver problemas reais de monitoramento energético e emissões de carbono.
+
+- **Vencedor do Global Solution 2024 - Green Energy**, reconhecido por sua contribuição inovadora para soluções sustentáveis no setor energético.
+
 ## ⚙️ Funcionalidades
 
 - **Monitoramento de Consumo de Energia ⚡**  
